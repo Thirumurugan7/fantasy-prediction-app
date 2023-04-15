@@ -1,10 +1,97 @@
 import "./App.css";
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
 
 function App() {
+  const [gotAccount, setGotAccount] = useState();
+  const [slicedAccount, setslicedAccount] = useState();
+  // Creating a function to connect user's wallet
+  const connectWallet = async () => {
+    try {
+      const { ethereum } = window;
+      console.log("clicked");
+      console.log(ethereum);
+      // Checking if user have Metamask installed
+      if (!ethereum) {
+        // If user doesn't have Metamask installed, throw an error
+        alert("Please install MetaMask");
+        return;
+      }
+
+      // If user has Metamask installed, connect to the user's wallet
+      const accounts = await ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      console.log(accounts);
+      setGotAccount(accounts);
+      const acSl = accounts.slice(0, 10);
+      setslicedAccount(acSl);
+      // At last save the user's wallet address in browser's local storage
+      localStorage.setItem("walletAddress", accounts[0]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </div>
+    <>
+      <div className="">
+        <div className="flex justify-end px-7 bg-gradient-to-r from-purple-200 via-purple-400 to-purple-800">
+          <button
+            className="items-center m-5  bg-white rounded-full font-medium  p-4 shadow-lg"
+            onClick={() => {
+              // Calling the connectWallet function when user clicks on the button
+              connectWallet();
+            }}
+          >
+            {gotAccount && <span>{slicedAccount.slice(0, 5)}</span>}
+            {!gotAccount && <span>Connect Wallet</span>}
+          </button>
+          ;
+        </div>
+      </div>
+      <div className=" App flex justify-center items-center font-Decalotype">
+        <div>
+          <div className="">
+            <h1 className="font-bold text-[50px] p-3 text-white">
+              It is Dream11, but{" "}
+              <span className="bg-gradient-to-r from-yellow-500 to-indigo-600 bg-clip-text text-transparent">
+                Decentralized
+              </span>{" "}
+            </h1>{" "}
+          </div>
+          <div className="text-white flex justify-center p-3">
+            <h2 className="font-semibold text-[30px] ">
+              Get started by creating your dream team
+            </h2>{" "}
+          </div>
+          <div className="text-white flex justify-center">
+            <h2 className="p-3 font-bold ">
+              You can get a chance to win 1 BTC 🚀
+            </h2>
+          </div>
+
+          <div className="flex justify-center mt-6">
+            <label className="text-white text-[25px] px-4">
+              Enter your name:{" "}
+            </label>
+            <input
+              type="text"
+              placeholder="Type here"
+              className="input input-bordered input-primary w-full max-w-xs rounded-sm placeholder:px-3"
+            />
+
+            <center>
+              <button
+                className="items-center m-5  bg-white rounded-full font-medium  py-2 px-4 hover:bg-red-600 hover:text-white shadow-lg"
+                type="submit"
+              >
+                Submit
+              </button>
+            </center>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
