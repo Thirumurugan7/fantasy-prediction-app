@@ -1,11 +1,14 @@
 import "./App.css";
 import React, { useState } from "react";
-import Navbar from "./components/Navbar";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import { useGlobalContext } from "../context";
 function App() {
+  const { contract } = useGlobalContext();
+  const navigate = useNavigate();
   const [gotAccount, setGotAccount] = useState();
   const [slicedAccount, setslicedAccount] = useState();
+  const [name, setName] = useState();
   // Creating a function to connect user's wallet
   const connectWallet = async () => {
     try {
@@ -31,6 +34,32 @@ function App() {
       localStorage.setItem("walletAddress", accounts[0]);
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(name);
+    try {
+      console.log("entered");
+      console.log({ contract });
+      const playerExist = await contract.isPlayer(gotAccount, {
+        gasLimit: 200000,
+      });
+
+      if (!playerExist) {
+        await contract.registerPlayer(name, name);
+
+        alert("player is registered");
+      }
+    } catch (error) {
+      console.log(error, error.message);
+    }
+    if (!gotAccount) {
+      alert("connect wallet to continue");
+    }
+    if (gotAccount) {
+      navigate("/contest");
     }
   };
   return (
@@ -95,15 +124,18 @@ function App() {
             <input
               type="text"
               placeholder="Type here"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="input input-bordered text-center input-primary w-full h-[34px] max-w-xs rounded-sm placeholder:px-3"
             />
 
             <center className="pt-4">
-              <Link to="/contest">
+              <Link>
                 {" "}
                 <button
                   className="items-center m-5  bg-white rounded-full font-medium  py-2 px-4 hover:bg-red-600 hover:text-white shadow-lg"
                   type="submit"
+                  onClick={handleSubmit}
                 >
                   Submit
                 </button>
