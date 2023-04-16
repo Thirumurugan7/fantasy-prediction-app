@@ -70,17 +70,17 @@ function App() {
             </h2>
           </div>
 
-          <div className="flex justify-center mt-6">
-            <label className="text-white text-[25px] px-4">
+          <div className="flex flex-col justify-center items-center mt-6">
+            <label className="text-white text-[25px] px-4 text-center py-5">
               Enter your name:{" "}
             </label>
             <input
               type="text"
               placeholder="Type here"
-              className="input input-bordered input-primary w-full max-w-xs rounded-sm placeholder:px-3"
+              className="input input-bordered text-center input-primary w-full h-[34px] max-w-xs rounded-sm placeholder:px-3"
             />
 
-            <center>
+            <center className="pt-4">
               <button
                 className="items-center m-5  bg-white rounded-full font-medium  py-2 px-4 hover:bg-red-600 hover:text-white shadow-lg"
                 type="submit"

@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
 import Contest from "./components/Contest";
+import CreateTeam from "./components/CreateTeam";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -12,6 +13,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/contest" element={<Contest />} />
+      <Route path="/createTeam" element={<CreateTeam />} />
     </Routes>
   </Router>
 );

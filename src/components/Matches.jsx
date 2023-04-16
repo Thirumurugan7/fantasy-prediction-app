@@ -22,7 +22,7 @@ const Matches = () => {
             <center className="m-4">
               {" "}
               <button className="py-1.5 border border-[#fff] text-[#b48325] rounded-3xl px-4 hover:bg-[#b48325] hover:text-[#fff] ">
-                Create Contest
+                Create Team
               </button>
             </center>
           </div>
@@ -52,7 +52,7 @@ const Matches = () => {
             <center className="m-4">
               {" "}
               <button className="py-1.5 border border-[#fff] text-[#b48325] rounded-3xl px-4 hover:bg-[#b48325] hover:text-[#fff] ">
-                Create Contest
+                Create Team
               </button>
             </center>
           </div>
@@ -82,7 +82,7 @@ const Matches = () => {
             <center className="m-4">
               {" "}
               <button className="py-1.5 border border-[#fff] text-[#b48325] rounded-3xl px-4 hover:bg-[#b48325] hover:text-[#fff] ">
-                Create Contest
+                Create Team
               </button>
             </center>
           </div>
