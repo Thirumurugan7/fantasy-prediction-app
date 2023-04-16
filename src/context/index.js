@@ -32,7 +32,7 @@ export const GlobalContextProvider = ({ children }) => {
   });
   const [updateGameData, setUpdateGameData] = useState(0);
   const [battleGround, setBattleGround] = useState("bg-astral");
-  const [step, setStep] = useState(1);
+
   const [errorMessage, setErrorMessage] = useState("");
   const player1Ref = useRef();
   const player2Ref = useRef();
@@ -76,22 +76,6 @@ export const GlobalContextProvider = ({ children }) => {
     setSmartContractAndProvider();
     // setSmartContractAndProvider();
   }, []);
-
-  useEffect(() => {
-    if (step !== -1 && contract) {
-      createEventListener({
-        navigate,
-        contract,
-        provider,
-        walletAddress,
-        setShowAlert,
-
-        setUpdateGameData,
-        player1Ref,
-        player2Ref,
-      });
-    }
-  }, [contract, step]);
 
   // * Set the game data to the state
   useEffect(() => {

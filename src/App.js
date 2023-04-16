@@ -1,14 +1,20 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useGlobalContext } from "../context";
+import { ABI } from "./contract";
+import { ethers } from "ethers";
+
+import Web3Modal from "web3modal";
 function App() {
-  const { contract } = useGlobalContext();
+  const ADDRESS = "0x6E252B16683DA414aD735ff4ED0C371Fe6B45e2a";
+  const [contract, setContract] = useState();
+  const [provider, setProvider] = useState();
   const navigate = useNavigate();
   const [gotAccount, setGotAccount] = useState();
   const [slicedAccount, setslicedAccount] = useState();
   const [name, setName] = useState();
+
   // Creating a function to connect user's wallet
   const connectWallet = async () => {
     try {
@@ -40,6 +46,20 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(name);
+    console.log("entered the problem");
+
+    const web3Modal = new Web3Modal();
+
+    const connection = await web3Modal.connect();
+
+    const newProvider = new ethers.providers.Web3Provider(connection);
+
+    const signer = newProvider.getSigner();
+
+    const newContract = new ethers.Contract(ADDRESS, ABI, signer);
+
+    setProvider(newProvider);
+    setContract(newContract);
     try {
       console.log("entered");
       console.log({ contract });
@@ -62,6 +82,19 @@ function App() {
       navigate("/contest");
     }
   };
+
+  // useEffect(() => {
+  //   const checkForPlayerToken = async () => {
+  //     const playerExists = await contract.isPlayer(gotAccount);
+  //     const playerTokenExists = await contract.isPlayerToken(gotAccount);
+  //     console.log({ playerExists, playerTokenExists });
+  //     if (playerExists && playerTokenExists) {
+  //       navigate("/create-battle");
+  //     }
+  //   };
+
+  //   if (contract) checkForPlayerToken();
+  // }, [contract]);
   return (
     <>
       <div className="">
