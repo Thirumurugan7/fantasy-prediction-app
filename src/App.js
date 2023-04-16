@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import Navbar from "./components/Navbar";
+import { Link } from "react-router-dom";
 
 function App() {
   const [gotAccount, setGotAccount] = useState();
@@ -35,7 +36,24 @@ function App() {
   return (
     <>
       <div className="">
-        <div className="flex justify-end px-7 bg-gradient-to-r from-purple-200 via-purple-400 to-purple-800">
+        <div className="fixed top-0">
+          <div className="text-white m-0 p-0">
+            <div className="flex justify-between pt-6 pl-5 ml-[100px] mr-[75px] pr-[30px]">
+              <div>
+                <img
+                  src="https://user-images.githubusercontent.com/111877553/232271079-d06d3ac4-daa1-453a-a51b-3d6b1b73f043.png"
+                  className="bg-contain w-12 h-12 rounded-full"
+                  alt="icon"
+                />
+              </div>
+              <div className="flex gap-3">
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-end px-7 bg-[#06002e]">
           <button
             className="items-center m-5  bg-white rounded-full font-medium  p-4 shadow-lg"
             onClick={() => {
@@ -81,12 +99,15 @@ function App() {
             />
 
             <center className="pt-4">
-              <button
-                className="items-center m-5  bg-white rounded-full font-medium  py-2 px-4 hover:bg-red-600 hover:text-white shadow-lg"
-                type="submit"
-              >
-                Submit
-              </button>
+              <Link to="/contest">
+                {" "}
+                <button
+                  className="items-center m-5  bg-white rounded-full font-medium  py-2 px-4 hover:bg-red-600 hover:text-white shadow-lg"
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </Link>
             </center>
           </div>
         </div>

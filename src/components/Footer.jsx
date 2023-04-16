@@ -2,9 +2,9 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div>
-      <h1>Made with 💙 by Gryffindors - Blue</h1>
-    </div>
+    <center className="py-3">
+      <h1 className="text-white">Made with 💙 by Gryffindors - Blue</h1>
+    </center>
   );
 };
 

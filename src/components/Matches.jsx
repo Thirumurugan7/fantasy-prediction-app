@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import { Link } from "react-router-dom";
 const Matches = () => {
   return (
     <div className="container mt-[50px] App1">
@@ -21,9 +22,12 @@ const Matches = () => {
 
             <center className="m-4">
               {" "}
-              <button className="py-1.5 border border-[#fff] text-[#b48325] rounded-3xl px-4 hover:bg-[#b48325] hover:text-[#fff] ">
-                Create Team
-              </button>
+              <Link to="/createTeam">
+                {" "}
+                <button className="py-1.5 border border-[#fff] text-[#b48325] rounded-3xl px-4 hover:bg-[#b48325] hover:text-[#fff] ">
+                  Create Team
+                </button>
+              </Link>
             </center>
           </div>
           <div className="flex justify-center items-center">
@@ -51,9 +55,12 @@ const Matches = () => {
 
             <center className="m-4">
               {" "}
-              <button className="py-1.5 border border-[#fff] text-[#b48325] rounded-3xl px-4 hover:bg-[#b48325] hover:text-[#fff] ">
-                Create Team
-              </button>
+              <Link to="/createTeam">
+                {" "}
+                <button className="py-1.5 border border-[#fff] text-[#b48325] rounded-3xl px-4 hover:bg-[#b48325] hover:text-[#fff] ">
+                  Create Team
+                </button>
+              </Link>
             </center>
           </div>
           <div className="flex justify-center items-center">
@@ -81,9 +88,12 @@ const Matches = () => {
 
             <center className="m-4">
               {" "}
-              <button className="py-1.5 border border-[#fff] text-[#b48325] rounded-3xl px-4 hover:bg-[#b48325] hover:text-[#fff] ">
-                Create Team
-              </button>
+              <Link to="/createTeam">
+                {" "}
+                <button className="py-1.5 border border-[#fff] text-[#b48325] rounded-3xl px-4 hover:bg-[#b48325] hover:text-[#fff] ">
+                  Create Team
+                </button>
+              </Link>
             </center>
           </div>
           <div className="flex justify-center items-center">

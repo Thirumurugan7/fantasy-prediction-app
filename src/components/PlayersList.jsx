@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const PlayersList = () => {
   const playerOfMumbai = [
@@ -116,36 +117,69 @@ const PlayersList = () => {
       credits: 8,
     },
   ];
+
+  var spent = 0;
+  const [spending, setSpending] = useState(0);
+  const handleSelect = () => {
+    spent = spending + spent;
+  };
+
+  useEffect(() => {
+    handleSelect();
+    spent += spending;
+    console.log(spending);
+    console.log(spent);
+  }, [spending]);
+
   return (
-    <div className=" flex flex-row justify-between mx-[75px] h-[500px]">
-      <div className="flex flex-col gap-4 flex-wrap ">
-        {playerOfMumbai.map((player) => (
-          <div className=" flex bg-[#0C0F0C] p-5 rounded-3xl gap-4 ">
-            <div>
-              <h1 className="text-[#feb561]">{player.name}</h1>
-              <h4 className="text-[#c4c4c4]">{player.position}</h4>
+    <>
+      <div className=" flex flex-row justify-between mx-[75px] h-[500px]">
+        <div className="flex flex-col gap-4 flex-wrap ">
+          {playerOfMumbai.map((player) => (
+            <div className=" flex bg-[#0C0F0C] p-5 rounded-3xl gap-4 ">
+              <div>
+                <h1 className="text-[#feb561]">{player.name}</h1>
+                <h4 className="text-[#c4c4c4]">{player.position}</h4>
+              </div>
+              <div>
+                <p className="text-[#c4c4c4]">({player.credits})</p>
+              </div>
             </div>
-            <div>
-              <p className="text-[#c4c4c4]">({player.credits})</p>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-4 flex-wrap-reverse mx-3 ">
+          {playerOfKolkata.map((player) => (
+            <div
+              className=" flex bg-[#0C0F0C]  p-5 rounded-3xl "
+              onClick={() => setSpending(player.credits)}
+            >
+              <div>
+                <h1 className="text-[#feb561]">{player.name}</h1>
+                <h4 className="text-[#c4c4c4]">{player.position}</h4>
+              </div>
+              <div>
+                <p className="text-[#c4c4c4]">({player.credits})</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+      <div className="flex justify-center items-center pb-5 ">
+        <button className="border-white py-2 px-5 border bg-white font-semibold text-[#182152] rounded-3xl">
+          Credits remaining: <span className="text-[#9E9E9E]">{spent}</span> /{" "}
+          <span className="text-[#B48325]">100</span>
+        </button>
       </div>
 
-      <div className="flex flex-col gap-4 flex-wrap-reverse mx-3 ">
-        {playerOfKolkata.map((player) => (
-          <div className=" flex bg-[#0C0F0C]  p-5 rounded-3xl">
-            <div>
-              <h1 className="text-[#feb561]">{player.name}</h1>
-              <h4 className="text-[#c4c4c4]">{player.position}</h4>
-            </div>
-            <div>
-              <p className="text-[#c4c4c4]">({player.credits})</p>
-            </div>
-          </div>
-        ))}
+      <div className="flex justify-center items-center pb-5">
+        <Link to="/createContest">
+          <button className="border-white py-2 px-5 border text-[#B48325] rounded-3xl hover:bg-red-600 hover:text-white">
+            Save Team
+          </button>
+        </Link>
       </div>
-    </div>
+    </>
   );
 };
 
