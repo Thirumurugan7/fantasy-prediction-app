@@ -41,11 +41,14 @@ function App() {
     } catch (error) {
       console.log(error);
     }
+
+    gotAccount && navigate("/contest");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(name);
+    navigate("/contest");
     console.log("entered the problem");
 
     const web3Modal = new Web3Modal();
@@ -163,7 +166,7 @@ function App() {
             />
 
             <center className="pt-4">
-              <Link>
+              <Link to="/contest">
                 {" "}
                 <button
                   className="items-center m-5  bg-white rounded-full font-medium  py-2 px-4 hover:bg-red-600 hover:text-white shadow-lg"
