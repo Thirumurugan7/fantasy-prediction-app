@@ -1,72 +1,50 @@
-# Getting Started with Create React App
+# Problem Statement
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+As fantasy sports get more popular and more people get attracted to them, some issues have arisen
+First of all, the transaction is not transparent and there is the possibility that it could be misappropriated
+For a short period of time, it is possible for the users to not receive the price pool for a number of reasons.
 
-## Available Scripts
+## Proposing solution
 
-In the project directory, you can run:
+As fantasy sports get more popular and more people get attracted to them, some issues have arisen
+First of all, the transaction is not transparent and there is the possibility that it could be misappropriated
+For a short period of time, it is possible for the users to not receive the price pool for a number of reasons
 
-### `npm start`
+Our decentralized fantasy sports app is designed to leverage the capabilities of both Ethereum and Polygon blockchains to create a seamless and secure user experience. Ethereum is a popular blockchain known for its robustness and security, while Polygon is a layer-2 scaling solution built on top of Ethereum, offering faster and cheaper transactions.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Our project is built on Ethereum and leverages its smart contract functionality to enable decentralized governance and secure player transactions. Ethereum's smart contracts allow for trustless interactions between users, ensuring transparency and fairness in the fantasy sports app.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To enhance the user experience and address scalability concerns, we have integrated Polygon as a layer-2 solution. Polygon allows for faster transaction times and lower fees compared to the Ethereum mainnet, making it more feasible for daily fantasy sports contests and quick transactions.
 
-### `npm test`
+By utilizing Ethereum and Polygon in combination, our fantasy sports app benefits from Ethereum's security and decentralization, while leveraging Polygon's scalability and cost-efficiency. This dual-chain approach provides users with a seamless experience, enabling them to participate in fantasy sports contests with lower transaction fees and faster transaction times, while also ensuring the integrity and transparency of the game through Ethereum's smart contract functionality.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In summary, our decentralized fantasy sports app is designed to fit into the Ethereum + Polygon track by utilizing the strengths of both blockchains to create a secure, scalable, and user-friendly experience for fantasy sports enthusiasts.
 
-### `npm run build`
+## Stacks we used:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<ul>
+<li>ReactJS</li>
+<li>NodeJS</li>
+<li>Solidity</li>
+<li>Hardhat</li>
+<li>Polygon </li>
+<li>EthersJS</li>
+</ul>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Future Implementation:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Soon we will lauch our mobile app with account abstraction and social logins
 
-### `npm run eject`
+![image](https://user-images.githubusercontent.com/67679146/232280697-ec5c9f1b-63c1-4b12-80a5-a2c0ea3a38d8.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![image](https://user-images.githubusercontent.com/67679146/232280941-fc8263de-e7a4-4073-86f8-42befbffddb3.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![image](https://user-images.githubusercontent.com/67679146/232280954-ab71c900-5efa-475b-85bd-6b8b28d07366.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![image](https://user-images.githubusercontent.com/67679146/232280961-ea692cce-4d0b-48b8-9b1a-8042264f85f0.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![image](https://user-images.githubusercontent.com/67679146/232280974-b758c521-f13c-40f2-8079-61dfad15c163.png)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 // contract deployed address : 0x2D6aAB65c0E3b642e85A5aafc80951aa088cA1EF
