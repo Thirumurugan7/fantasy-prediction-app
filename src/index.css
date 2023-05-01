@@ -3,9 +3,10 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
-.App {
-  background-image: url("assets/background.png");
-  background-repeat: repeat;
+.home {
+  background-image: url("./assets/git2.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  height: max-content;
 }

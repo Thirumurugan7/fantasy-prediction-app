@@ -2,7 +2,10 @@ import React from "react";
 import "../index.css";
 import Navbar from "./Navbar";
 import PlayersList from "./PlayersList";
+import { useParams } from "react-router-dom";
 const CreateTeam = () => {
+  const { match_id } = useParams();
+  console.log(match_id);
   return (
     <div className="App1 h-full">
       <Navbar />
@@ -42,7 +45,7 @@ const CreateTeam = () => {
           Select your Team
         </h1>
       </div>
-      <PlayersList />
+      <PlayersList matchId={match_id} />
     </div>
   );
 };
