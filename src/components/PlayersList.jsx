@@ -1,17 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+import { CreateTeam } from "../BlockchainServices";
+
 const PlayersList = ({ matchId }) => {
   const [team1Players, setTeam1Players] = useState([]);
   const [team2Players, setTeam2Players] = useState([]);
   const [credits, setCredits] = useState(0);
   const [selectedPlayers, setSelectedPlayers] = useState([]);
+  const [select, setSelect] = useState([]);
+  const navigate = useNavigate();
+
   const fetchAPI = async () => {
+    const storedData = JSON.parse(localStorage.getItem("myteam"));
+    if (storedData) {
+      setSelect(storedData);
+      return;
+    }
     const options = {
       method: "GET",
       url: `https://cricbuzz-cricket.p.rapidapi.com/mcenter/v1/${matchId}`,
       headers: {
-        "X-RapidAPI-Key": "83a28b3020msh04c8416d55ed24dp1ee956jsnbe0859b18b5a",
+        "X-RapidAPI-Key": "9b118b0c0dmsh14abcc471abbd5cp16b2e9jsn8fb2030c6ddf",
         "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
       },
     };
@@ -22,6 +34,7 @@ const PlayersList = ({ matchId }) => {
       const team2 = response.data.matchInfo.team2;
       setTeam1Players(team1.playerDetails);
       setTeam2Players(team2.playerDetails);
+      localStorage.setItem("myTeam", JSON.stringify(response.data));
     } catch (error) {
       console.error(error);
     }
@@ -52,7 +65,7 @@ const PlayersList = ({ matchId }) => {
     console.log(spending);
     console.log(spent);
   }, [spending]);
-
+  const team_players = [];
   const teamplayer1 = () =>
     team1Players.map((player, index) => {
       if (
@@ -97,7 +110,7 @@ const PlayersList = ({ matchId }) => {
         );
       }
     });
-  const team_players = [];
+
   const teamplayer2 = () =>
     team2Players.map((player, index) => {
       if (
@@ -155,6 +168,7 @@ const PlayersList = ({ matchId }) => {
     return (
       <div>
         <h2>Selected Players :</h2>
+        {console.log(players)}
         {players.map((player) => (
           <div key={player.id}>
             <span>{player.fullName}</span>
@@ -163,28 +177,45 @@ const PlayersList = ({ matchId }) => {
       </div>
     );
   }
-  function CreditHandler({ selectedPlayers, teamPlayers }) {
-    console.log(selectedPlayers, teamPlayers);
-    const players = teamPlayers.filter((player) =>
-      selectedPlayers.includes(player.id)
-    );
+  // function CreditHandler({ selectedPlayers, teamPlayers }) {
+  //   console.log(selectedPlayers, teamPlayers);
+  //   const players = teamPlayers.filter((player) =>
+  //     selectedPlayers.includes(player.id)
+  //   );
 
-    let credit = credits;
+  //   let credit = credits;
 
-    players.map((player) => {
-      if (player.role === "Batsman") {
-        setCredits(credit + 10);
-      } else if (player.role === "WK-Batsman") {
-        setCredits(credit + 10);
-      } else if (player.role === "Bowler") {
-        setCredits(credit + 9);
-      } else if (player.role === "Bowling Allrounder") {
-        setCredits(credit + 9);
+  //   players.map((player) => {
+  //     if (player.role === "Batsman") {
+  //       setCredits(credit + 10);
+  //     } else if (player.role === "WK-Batsman") {
+  //       setCredits(credit + 10);
+  //     } else if (player.role === "Bowler") {
+  //       setCredits(credit + 9);
+  //     } else if (player.role === "Bowling Allrounder") {
+  //       setCredits(credit + 9);
+  //     }
+  //     return "thiru";
+  //   });
+  // }
+
+  // const teamCreateHandler = async (selectedPlayers) => {
+  //   const res = await CreateTeam({ selectedPlayers });
+  //   console.log(res);
+  // };
+  const handleSelectTeam = async () => {
+    if (selectedPlayers.length === 11) {
+      console.log(selectedPlayers);
+      console.log("team selected");
+      const res = await CreateTeam({ selectedPlayers });
+      console.log(res);
+      if (res) {
+        navigate("/createContest");
       }
-      return "thiru";
-    });
-  }
-
+    } else {
+      console.log("Team of 11 players is required");
+    }
+  };
   return (
     <>
       <div className=" flex flex-row justify-between mx-[75px] ">
@@ -194,14 +225,7 @@ const PlayersList = ({ matchId }) => {
             selectedPlayers={selectedPlayers}
             teamPlayers={team1Players}
           />
-          <CreditHandler
-            selectedPlayers={selectedPlayers}
-            teamPlayers={team1Players}
-          />
-          <CreditHandler
-            selectedPlayers={selectedPlayers}
-            teamPlayers={team2Players}
-          />
+
           <SelectedPlayers
             selectedPlayers={selectedPlayers}
             teamPlayers={team2Players}
@@ -220,11 +244,14 @@ const PlayersList = ({ matchId }) => {
       </div>
 
       <div className="flex justify-center items-center pb-5">
-        <Link to="/createContest">
-          <button className="border-white py-2 px-5 border text-[#B48325] rounded-3xl hover:bg-red-600 hover:text-white">
-            Save Team
-          </button>
-        </Link>
+        {/* <Link to="/createContest"> */}
+        <button
+          className="border-white py-2 px-5 border text-[#B48325] rounded-3xl hover:bg-red-600 hover:text-white"
+          onClick={handleSelectTeam}
+        >
+          Save Team
+        </button>
+        {/* </Link> */}
       </div>
     </>
   );

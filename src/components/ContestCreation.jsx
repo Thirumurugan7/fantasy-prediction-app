@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { Link } from "react-router-dom";
+import { createContest, joinContest } from "../BlockchainServices";
+import { useNavigate } from "react-router-dom";
 const ContestCreation = () => {
+  const navigate = useNavigate();
+  const [contestName, setcontestName] = useState();
+  const [joinContestName, setJoincontestName] = useState();
+
+  const handleContestCreate = async () => {
+    console.log("creation initiated");
+    const res = await createContest({ contestName });
+    console.log(res);
+    if (res) {
+      navigate(`/currentContest/${contestName}`);
+    }
+  };
+
+  const joinHandler = async () => {
+    console.log("joining initiated");
+    const res = await joinContest({ joinContestName });
+    console.log(res);
+    if (res) {
+      navigate(`/currentContest/${joinContestName}`);
+    }
+  };
+
   return (
     <div className="App1 h-full">
       <Navbar />
@@ -36,20 +59,20 @@ const ContestCreation = () => {
           </div>
         </div>
       </div>
-
+      {/* 
       <div className="flex justify-center">
         {" "}
         <div className="w-3/4 h-2 bg-[#B48325]"></div>
-      </div>
+      </div> */}
 
-      <center>
+      {/* <center>
         <button className="bg-[#939393] text-[25px] text-[#0C0F0C] rounded-2xl py-1.7 px-3 m-2 font-extrabold">
           Contest by XXX ✏️
         </button>
-      </center>
+      </center> */}
 
       <div className="flex flex-col mt-6 pt-[50px]">
-        <div className=" ">
+        {/*  <div className=" ">
           <h1 className="text-center text-[35px] text-white font-bold">
             Entry: <span className="text-gray-300">00.00</span> MATIC{" "}
           </h1>
@@ -63,6 +86,15 @@ const ContestCreation = () => {
           <h1 className=" text-center text-[35px] text-white font-bold">
             Spots: 3{" "}
           </h1>
+        </center> */}
+        <center className="mb-[50px]">
+          <input
+            type="text"
+            className="w-1/5 h-[38px] rounded-3xl placeholder:text-center text-center"
+            placeholder="Enter your contest name: "
+            value={contestName}
+            onChange={(e) => setcontestName(e.target.value)}
+          />
         </center>
 
         <div className="flex justify-center">
@@ -71,27 +103,35 @@ const ContestCreation = () => {
         </div>
 
         <center className="my-5">
-          <Link to="/currentContest">
-            <button className="text-[#B48325] bg-transparent border border-white py-2 px-5 rounded-3xl">
-              Create Contest
-            </button>
-          </Link>
+          {/* <Link to="/currentContest"> */}
+          <button
+            className="text-[#B48325] bg-transparent border border-white py-2 px-5 rounded-3xl"
+            onClick={handleContestCreate}
+          >
+            Create Contest
+          </button>
+          {/* </Link> */}
         </center>
         <center>
           <h1 className="text-[30px] font-serif text-white">Or</h1>
-        </center>
-        <center className="my-5">
-          <button className="text-[#B48325] bg-transparent border border-white py-2 px-5 rounded-3xl">
-            Join Contest
-          </button>
         </center>
 
         <center>
           <input
             type="text"
-            className="w-2/5 h-[28px] rounded-3xl placeholder:text-center"
+            className="w-1/5 h-[38px] rounded-3xl placeholder:text-center"
             placeholder="Enter the contest code: "
+            value={joinContestName}
+            onChange={(e) => setJoincontestName(e.target.value)}
           />
+        </center>
+        <center className="my-5">
+          <button
+            className="text-[#B48325] bg-transparent border border-white py-2 px-5 rounded-3xl"
+            onClick={joinHandler}
+          >
+            Join Contest
+          </button>
         </center>
       </div>
       <Footer />

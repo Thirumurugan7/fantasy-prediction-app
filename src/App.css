@@ -1,9 +1,15 @@
 .App {
-  background-image: url("assets/background.png");
+  background-image: url("assets/bg-v.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
 }
+/* .App {
+  background-image: url("https://assets.gqindia.com/photos/5cdc3848700a7731d1aa22f6/16:9/w_1920,c_limit/stadium_0.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+} */
 .App1 {
   background-image: url("assets/background.png");
   background-repeat: no-repeat;

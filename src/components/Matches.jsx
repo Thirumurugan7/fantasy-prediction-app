@@ -2,24 +2,36 @@ import React, { useState, useEffect } from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 const Matches = () => {
   const [matches, setMatches] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchMatches = async () => {
+      const storedData = JSON.parse(localStorage.getItem("myData"));
+      console.log(storedData);
+      if (storedData) {
+        setData(storedData);
+      }
       const options = {
         method: "GET",
         url: "https://cricbuzz-cricket.p.rapidapi.com/matches/v1/upcoming",
         headers: {
           "X-RapidAPI-Key":
-            "83a28b3020msh04c8416d55ed24dp1ee956jsnbe0859b18b5a",
+            "9b118b0c0dmsh14abcc471abbd5cp16b2e9jsn8fb2030c6ddf",
           "X-RapidAPI-Host": "cricbuzz-cricket.p.rapidapi.com",
         },
       };
 
       try {
+        console.log("trying");
         const response = await axios.request(options);
+
         const rd = response.data;
+        setData(rd);
+        localStorage.setItem("myData", JSON.stringify(response.data));
+
         const league = rd.typeMatches[1];
         const seriesMatches = league.seriesMatches[0];
         setMatches(seriesMatches.seriesAdWrapper.matches);
@@ -30,7 +42,7 @@ const Matches = () => {
     };
 
     fetchMatches();
-  }, [matches]);
+  }, []);
 
   return (
     <div className="container mt-[50px] App1">
