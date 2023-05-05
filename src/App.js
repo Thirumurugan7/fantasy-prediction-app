@@ -67,7 +67,7 @@ function App() {
     if (res) {
       console.log("true");
     }
-    navigate("/ contest");
+    navigate("/contest");
   };
 
   return (
@@ -77,13 +77,13 @@ function App() {
           <Navbar />
         </div>
       </div>
-      <div className=" App flex justify-center items-center font-Decalotype">
+      <div className=" App flex justify-center pt-[50px] items-stretch font-Decalotype">
         <div>
           <div className="">
             <h1 className="font-bold text-[50px] p-3 text-white">
-              It is Dream11, but{" "}
+              It is Web3,
               <span className="bg-gradient-to-r from-yellow-500 to-indigo-600 bg-clip-text text-transparent">
-                Decentralized
+                Fantasy Sports prediction Application
               </span>{" "}
             </h1>{" "}
           </div>

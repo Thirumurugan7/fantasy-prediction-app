@@ -27,6 +27,7 @@ const Matches = () => {
       try {
         console.log("trying");
         const response = await axios.request(options);
+        const jsondata = JSON.stringify(response.data);
 
         const rd = response.data;
         setData(rd);
