@@ -46,5 +46,11 @@ Soon we will lauch our mobile app with account abstraction and social logins
 ![conetsttsdfs](https://user-images.githubusercontent.com/67679146/236435774-f3dde604-cbf2-44b4-826f-9eb81484694c.png)
 ![joined](https://user-images.githubusercontent.com/67679146/236435785-567965e7-e76f-4e85-81e0-261394573ff9.png)
 ![image](https://user-images.githubusercontent.com/67679146/236450921-e7d93bdf-c333-4152-951f-7ac89ff7326f.png)
+<h1> Smart contract Deployed in Polygon Mumbai Testnet<h1>
+![image](https://user-images.githubusercontent.com/67679146/236692718-9a4451c6-a372-48a8-836d-9c76f837129d.png)
+
+
+<h1>Application deployed in Filecoin using Spheron<h1>
+![image](https://user-images.githubusercontent.com/67679146/236692774-d7d462e4-3833-4840-81db-418870c3f3bf.png)
 
 
