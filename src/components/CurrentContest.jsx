@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import "../index.css";
 import { useParams } from "react-router-dom";
 import { contestPlayers } from "../BlockchainServices";
+import LeaderBoard from "./LeaderBoard";
 const CurrentContest = () => {
   const [players, setPlayers] = useState([]);
   const { contest_name } = useParams();
@@ -16,6 +17,7 @@ const CurrentContest = () => {
   useState(() => {
     viewVal();
   }, [contest_name]);
+  const perf = [20, 30, 40, 50, 66, 55, 44, 33, 22, 77, 88];
 
   return (
     <div className="App h-full">
@@ -23,22 +25,22 @@ const CurrentContest = () => {
       <div className="flex flex-col">
         <div className="flex flex-row gap-3 justify-around mt-[10px] mx-[30px] rounded-3xl pb-6 bg-[#06002E]">
           <div className="flex justify-center items-center">
-            <h1>team1</h1>
+            <h1 className="text-white">RR</h1>
           </div>
           <div className="text-white">
             <h1 className="font-bold text-[20px]">Indian Premier League T20</h1>
             <center className="m-3 gap-4 p-2 ">
               <h2 className="font-semibold mx-auto pb-3">Vs</h2>
-              <h4 className="font-light">Starts at Sun 03:30 PM</h4>
+              <h4 className="font-light">Starts at Fri 07:30 PM</h4>
             </center>
 
             <center className="m-4">
               {" "}
-              <h1>Ground: Wankhede, Mumbai</h1>
+              <h1>Ground: Jaipur</h1>
             </center>
           </div>
           <div className="flex justify-center items-center">
-            <h2>team2</h2>
+            <h2 className="text-white">GT</h2>
           </div>
         </div>
       </div>
@@ -49,9 +51,7 @@ const CurrentContest = () => {
       </div>
       <div className="bg-[#aba9a98b] flex flex-col mx-[150px] rounded-2xl">
         <div className="m-3 ml-5 ">
-          <h1 className="text-white font-[28px]  font-extrabold">
-            Contest by Thiru
-          </h1>
+          <h1 className="text-white font-extrabold">Contest by You</h1>
         </div>
         <div className="flex text-[#372626] font-bold justify-around m-2 p-4">
           <div className="flex flex-col"></div>
@@ -67,11 +67,7 @@ const CurrentContest = () => {
         />
       </center>
       <center className="pb-4">
-        <input
-          type="text"
-          className="w-2/5 h-[28px] rounded-3xl placeholder:text-center cursor-pointer"
-          placeholder="More Options 🔗 "
-        />
+        <LeaderBoard contestName="lives" performance={perf} />
       </center>
       <div className=" fixed bottom-0 left-[42%]    ">
         {" "}

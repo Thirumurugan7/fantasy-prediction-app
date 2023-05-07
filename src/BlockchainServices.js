@@ -112,6 +112,20 @@ const contestPlayers = async ({ contestName }) => {
   console.log(res);
 };
 
+const endgame = async ({ contestName, performance }) => {
+  console.log("endgame started");
+  let provider =
+    window.ethereum != null
+      ? new ethers.providers.Web3Provider(window.ethereum)
+      : ethers.providers.getDefaultProvider();
+  console.log(provider);
+  const signer = provider.getSigner();
+  console.log(signer);
+  const Role = new ethers.Contract(CONTRACT_ADDRESS, config, signer);
+  const res = await Role.endBattle(contestName, performance);
+  console.log(res);
+  return true;
+};
 export {
   GetPrice,
   Register,
@@ -119,4 +133,5 @@ export {
   createContest,
   joinContest,
   contestPlayers,
+  endgame,
 };

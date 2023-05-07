@@ -111,7 +111,8 @@
     "name": "endBattle",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
+    "type": "function",
+    "gas": "30000"
   },
   {
     "inputs": [

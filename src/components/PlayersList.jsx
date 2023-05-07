@@ -166,11 +166,11 @@ const PlayersList = ({ matchId }) => {
     );
 
     return (
-      <div>
-        <h2>Selected Players :</h2>
+      <div className="p-5">
+        <h2>Selected Players from team :</h2>
         {console.log(players)}
         {players.map((player) => (
-          <div key={player.id}>
+          <div key={player.id} className="p-4">
             <span>{player.fullName}</span>
           </div>
         ))}
@@ -237,10 +237,10 @@ const PlayersList = ({ matchId }) => {
       </div>
 
       <div className="flex justify-center items-center pb-5 ">
-        <button className="border-white py-2 px-5 border bg-white font-semibold text-[#182152] rounded-3xl">
+        {/* <button className="border-white py-2 px-5 border bg-white font-semibold text-[#182152] rounded-3xl">
           Credits remaining: <span className="text-[#9E9E9E]">{credits}</span> /{" "}
           <span className="text-[#B48325]">100</span>
-        </button>
+        </button> */}
       </div>
 
       <div className="flex justify-center items-center pb-5">

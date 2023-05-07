@@ -88,7 +88,7 @@ function App() {
             </h1>{" "}
           </div>
           <div className="text-white flex justify-center p-3">
-            <h2 className="font-semibold text-[30px] ">
+            <h2 className="font-semibold text-[30px] bg-blue-600 rounded-lg ">
               Get started by creating your dream team
             </h2>{" "}
           </div>
