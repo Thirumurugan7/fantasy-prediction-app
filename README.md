@@ -35,16 +35,16 @@ In summary, our decentralized fantasy sports app is designed to fit into the Eth
 
 Soon we will lauch our mobile app with account abstraction and social logins
 
-![image](https://user-images.githubusercontent.com/67679146/232280697-ec5c9f1b-63c1-4b12-80a5-a2c0ea3a38d8.png)
+![joined](https://user-images.githubusercontent.com/67679146/236435566-8e1b186b-e5d9-40c1-95f0-bd04390c3cd4.png)
+![home](https://user-images.githubusercontent.com/67679146/236435600-4b143d90-3386-4b21-9e6a-fdebfb5f0b94.png)
+![contest](https://user-images.githubusercontent.com/67679146/236435614-dbbf1f94-99eb-4b17-8634-a437aae96441.png)
+![team](https://user-images.githubusercontent.com/67679146/236435628-0cbcac09-a409-44bf-b8f8-271cc7b5cff8.png)
+![select](https://user-images.githubusercontent.com/67679146/236435679-6d7df093-a0cf-49a6-b449-7ecf4b97046d.png)
+![team created](https://user-images.githubusercontent.com/67679146/236435704-6c966cc8-47db-4d2c-b86c-9390f5efd162.png)
+![createcontest](https://user-images.githubusercontent.com/67679146/236435717-9a25b902-1998-43cc-81e9-403f9fc7fe7a.png)
+![cc2](https://user-images.githubusercontent.com/67679146/236435763-78578fa2-b8a9-467f-9e09-e686ac958512.png)
+![conetsttsdfs](https://user-images.githubusercontent.com/67679146/236435774-f3dde604-cbf2-44b4-826f-9eb81484694c.png)
+![joined](https://user-images.githubusercontent.com/67679146/236435785-567965e7-e76f-4e85-81e0-261394573ff9.png)
+![image](https://user-images.githubusercontent.com/67679146/236450921-e7d93bdf-c333-4152-951f-7ac89ff7326f.png)
 
-![image](https://user-images.githubusercontent.com/67679146/232280941-fc8263de-e7a4-4073-86f8-42befbffddb3.png)
 
-![image](https://user-images.githubusercontent.com/67679146/232280954-ab71c900-5efa-475b-85bd-6b8b28d07366.png)
-
-![image](https://user-images.githubusercontent.com/67679146/232280961-ea692cce-4d0b-48b8-9b1a-8042264f85f0.png)
-
-![image](https://user-images.githubusercontent.com/67679146/232280974-b758c521-f13c-40f2-8079-61dfad15c163.png)
-
-
-
-// contract deployed address : 0x2D6aAB65c0E3b642e85A5aafc80951aa088cA1EF
